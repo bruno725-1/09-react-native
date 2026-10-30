@@ -42,6 +42,15 @@ Crie uma tela de confirmação de pedido. Depois da ação de finalizar compra n
 No arquivo `_layout.tsx`, configure opções individuais para as telas usando `Stack.Screen`: defina títulos mais descritivos para Início, Detalhes e Carrinho e oculte o cabeçalho apenas na tela de confirmação.
 
 **Critério:** cada tela apresenta as opções esperadas no cabeçalho, e a confirmação não exibe cabeçalho. Confira se a navegação de retorno continua funcionando nas demais telas.
+### Configuração das telas do Stack
+
+As telas da aplicação foram configuradas individualmente no arquivo `_layout.tsx`, utilizando o componente `Stack.Screen` do Expo Router.
+
+Cada tela possui um título específico definido pela propriedade `title`, tornando a navegação mais descritiva.
+
+Na tela de confirmação do pedido, foi utilizada a propriedade `headerShown: false` para ocultar o cabeçalho.
+
+Essa configuração permite personalizar a apresentação de cada tela sem comprometer o funcionamento da pilha de navegação e dos mecanismos de retorno.
 
 ### 5. Fluxo de Login (Navegação Linear Básica)
 
