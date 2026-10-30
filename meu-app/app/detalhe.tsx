@@ -1,23 +1,58 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useRouter } from 'expo-router';
+// Agora vem a parte mais interessante: recuperar o parâmetro e encontrar o produto correspondente.
+
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet
+} from 'react-native';
+
+import {
+  useRouter,
+  useLocalSearchParams
+} from 'expo-router';
+
+import { produtos } from '../data/produtos';
 
 export default function Detalhe() {
   const router = useRouter();
 
+  const { id } = useLocalSearchParams<{
+    id: string;
+  }>();
+
+  const produto = produtos.find(
+    (item) => item.id === id
+  );
+
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>
-        Tela de Detalhes
-      </Text>
+      {produto ? (
+        <>
+          <Text style={styles.titulo}>
+            {produto.nome}
+          </Text>
+
+          <Text style={styles.preco}>
+            Preço: R$ {produto.preco.toFixed(2)}
+          </Text>
+        </>
+      ) : (
+        <Text>Produto não encontrado.</Text>
+      )}
+
       <TouchableOpacity
         style={styles.botao}
         onPress={() => router.push('/carrinho')}
       >
-        <Text style={styles.TextoDoBotao}>
+        <Text style={styles.texto}>
           Ver o Carrinho de Compras
         </Text>
       </TouchableOpacity>
-      <Text>(O botão voltar aparece no topo automaticamente)</Text>
+
+      <Text>
+        (O botão voltar aparece no topo automaticamente)
+      </Text>
     </View>
   );
 }
@@ -31,6 +66,10 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: 22,
     fontWeight: 'bold',
+    marginBottom: 15,
+  },
+  preco: {
+    fontSize: 18,
     marginBottom: 20,
   },
   botao: {
@@ -40,7 +79,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     backgroundColor: '#007AFF',
   },
-  TextoDoBotao: {
+  texto: {
     color: '#fff',
     fontSize: 16,
   },
