@@ -32,6 +32,11 @@ export default function Layout() {
         name="home"
         options={{ title: 'Home' }}
       />
+
+      <Stack.Screen name="etapa1" options={{ title: 'Etapa 1 - Nome' }} />
+      <Stack.Screen name="etapa2" options={{ title: 'Etapa 2 - E-mail' }} />
+      <Stack.Screen name="etapa3" options={{ title: 'Etapa 3 - Senha' }} />
+      <Stack.Screen name="sucesso" options={{ title: 'Cadastro concluído' }} />
     </Stack>
   );
 }
