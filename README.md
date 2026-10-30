@@ -27,6 +27,15 @@ Teste também o botão de voltar do cabeçalho e o botão voltar do dispositivo 
 Crie uma tela de confirmação de pedido. Depois da ação de finalizar compra no carrinho, use `router.replace` para exibir a confirmação sem manter o carrinho como a tela anterior.
 
 **Critério:** depois da confirmação, voltar não deve reabrir o carrinho. Compare esse comportamento com `router.push` e explique a diferença entre empilhar e substituir uma rota.
+### Diferença entre os métodos de navegação
+
+- **`router.push()`**: Empilha uma nova rota sobre a rota atual, preservando a anterior no histórico de navegação.
+
+- **`router.replace()`**: Substitui a rota atual pela nova, removendo a anterior daquela posição da pilha.
+
+- **`router.back()`**: Retorna à rota anterior disponível no histórico de navegação.
+
+**Diferença fundamental:** o `push` adiciona uma nova entrada à pilha de navegação, o `replace` substitui a entrada atual e o `back` retorna à entrada anterior.
 
 ### 4. Configurar as telas do Stack
 

@@ -24,6 +24,15 @@ export default function Carrinho() {
           Voltar
         </Text>
       </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.botao}
+        onPress={() => router.replace('/confirmacao')}
+      >
+        <Text style={styles.texto}>
+          Finalizar Compra
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -33,6 +42,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 20,
   },
 
   titulo: {
@@ -45,6 +55,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#007AFF',
     padding: 15,
     borderRadius: 10,
+    marginBottom: 10,
   },
 
   texto: {
