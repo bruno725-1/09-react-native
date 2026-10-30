@@ -67,6 +67,20 @@ Essa configuração permite personalizar a apresentação de cada tela sem compr
 	3. Na tela Home, verifique se o botão físico/virtual de "Voltar" (no topo ou no sistema operacional) desapareceu, impedindo o usuário de retornar ao Login deslogado.
 
 	4. Adicione um botão "Sair" na Home que faz o caminho inverso, usando replace('Login').
+### Fluxo de Login e Navegação Linear
+
+O fluxo de autenticação foi implementado utilizando o método `router.replace()` do Expo Router.
+
+Na tela de Login, ao clicar no botão Entrar, a rota atual é substituída pela tela Home. Dessa forma, o usuário não consegue retornar à tela de Login utilizando o histórico de navegação.
+
+Na tela Home, foi implementado o botão Sair, que utiliza novamente `router.replace()` para retornar à tela de Login.
+
+**Diferença entre navigate e replace:**
+
+- `navigate`: realiza a navegação para outra rota, podendo reutilizar uma rota existente ou adicionar uma nova entrada ao histórico, conforme o estado da navegação.
+- `replace`: substitui a rota atual por outra, sem preservar a rota substituída naquela posição da pilha.
+
+Essa abordagem é útil em fluxos de autenticação, pois impede que o usuário retorne à tela de login após entrar no aplicativo.
 
 ### 6: Catálogo de Produtos (Passagem de Parâmetros e Título Dinâmico)
 

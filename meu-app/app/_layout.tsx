@@ -22,6 +22,16 @@ export default function Layout() {
         name="confirmacao"
         options={{ headerShown: false }}
       />
+
+      <Stack.Screen
+        name="login"
+        options={{ title: 'Login' }}
+      />
+
+      <Stack.Screen
+        name="home"
+        options={{ title: 'Home' }}
+      />
     </Stack>
   );
 }
